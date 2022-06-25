@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Users\Subjects;
+use Illuminate\Support\Facades\DB;
 
 class SubjectsTableSeeder extends Seeder
 {
@@ -12,6 +13,12 @@ class SubjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        // 国語、数学、英語を追加
+        $subjects = ['国語', '数学', '英語'];
+        foreach ($subjects as $subject) {
+            DB::table('subjects')->insert([
+                'subject' => $subject,
+                'created_at' => '2022-06-20',
+            ]);
+        }
     }
 }
