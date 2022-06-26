@@ -12,6 +12,7 @@
         <div class="d-flex post_status">
           <div class="mr-5">
             <i class="fa fa-comment"></i><span class=""></span>
+            {{ $post->commentCounts() }}
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
