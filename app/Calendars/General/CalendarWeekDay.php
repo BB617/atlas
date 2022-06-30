@@ -22,7 +22,7 @@ class CalendarWeekDay
 
   function pastClassName()
   {
-    return "past";
+    return "past-day";
   }
 
   /**

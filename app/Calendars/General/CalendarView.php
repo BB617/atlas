@@ -73,7 +73,14 @@ class CalendarView
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         } else {
-          $html[] = $day->selectPart($day->everyDay());
+          if ($day->everyDay() !== "") {
+            if ($day->everyDay() < $toDay) {
+              $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
+              $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            } else {
+              $html[] = $day->selectPart($day->everyDay());
+            }
+          }
         }
         $html[] = $day->getDate();
         $html[] = '</td>';
