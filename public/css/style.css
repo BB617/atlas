@@ -106,6 +106,18 @@ li {
   width: 60%;
 }
 
+.modal__content dl dt,
+dd,
+p {
+  text-align: center;
+}
+
+.modal__content div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 /* 掲示板 */
 .sub_categories {
   display: none;

@@ -15,4 +15,21 @@
     </div>
   </div>
 </div>
+<div id="modal" class="modal">
+  <div id="modal__bg" class="modal__bg"></div>
+  <div class="modal__content">
+    <dl>
+      <dt>予約日：</dt>
+      <dd></dd>
+      <dt>時間：</dt>
+      <dd></dd>
+    </dl>
+    <p>上記の予約をキャンセルしてもよろしいですか？</p>
+    <div>
+      <button class="btn btn-primary col-2 px-2 modal__close" style="font-size:12px">閉じる</button>
+      <button type="submit" class="btn btn-danger col-2 px-2" name="delete_date" style="font-size:12px" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">キャンセル</button>
+    </div>
+  </div>
+
+</div>
 @endsection
