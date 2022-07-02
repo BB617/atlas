@@ -38,7 +38,6 @@ class CalendarWeekDay
 
     $html[] = '<div class="text-left">';
     if ($one_part) {
-      // $html[] = '<p class="day_part m-0 pt-1">1部</p>';
       $html[] = '<a href=" ' . route('calendar.admin.detail', ['id' => $one_part->id, 'data' => $ymd, 'part' => 1]) . ' ">1部</a>';
       $html[] = '<p class="day_part m-0 pt-1"> ' . $one_part->countUsers() . ' </p>';
     }
