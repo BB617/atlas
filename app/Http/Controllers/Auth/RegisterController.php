@@ -60,7 +60,22 @@ class RegisterController extends Controller
     public function registerPost(Request $request)
     {
         DB::beginTransaction();
-        try{
+        try {
+
+            // $request->validate([
+            //     'over_name' => 'required|string|max:10',
+            //     'under_name' => 'required|string|max:10',
+            //     'over_name_kana' => 'required|string|max:30',
+            //     'under_name_kana' => 'required|string|max:30',
+            //     'mail_address' => 'required|email|unique:users|max:100',
+            //     'sex' => 'required',
+            //     'old_year' => 'required',
+            //     'old_month' => 'required',
+            //     'old_day' => 'required',
+            //     'role' => 'required',
+            //     'password' => 'required|min:8|max:30|confirmed',
+            // ]);
+
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
@@ -83,7 +98,7 @@ class RegisterController extends Controller
             $user->subjects()->attach($subjects);
             DB::commit();
             return view('auth.login.login');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollback();
             return redirect()->route('loginView');
         }
