@@ -44,11 +44,11 @@ $(function () {
     }).done(function (res) {
       $('.like_counts' + post_id).text(countInt - 1);
     }).fail(function () {
-
+      console.log('fail');
     });
   });
 
-  $('.edit-modal-open').on('click',function(){
+  $('.edit-modal-open').on('click', function () {
     $('.js-modal').fadeIn();
     var post_title = $(this).attr('post_title');
     var post_body = $(this).attr('post_body');
