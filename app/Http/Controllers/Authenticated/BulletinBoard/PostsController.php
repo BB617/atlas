@@ -49,8 +49,6 @@ class PostsController extends Controller
     public function postInput()
     {
         $main_categories = MainCategory::get();
-        // ・リレーションの整合性を担保。
-        // ・foreachのネストで、view側にメインカテゴリ、サブカテゴリともに表示させる。
         return view('authenticated.bulletinboard.post_create', compact('main_categories'));
     }
 

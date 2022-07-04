@@ -23,12 +23,18 @@
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
               </div>
+              @if($errors->first('over_name'))
+                <span class="error_message">{{ $errors->first('over_name') }}</span>
+              @endif
             </div>
             <div class="" style="width:140px">
               <label class=" d-block m-0" style="font-size:13px">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
               </div>
+              @if($errors->first('under_name'))
+                <span class="error_message">{{ $errors->first('under_name') }}</span>
+              @endif
             </div>
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
@@ -37,12 +43,18 @@
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
               </div>
+              @if($errors->first('over_name_kana'))
+                <span class="error_message">{{ $errors->first('over_name_kana') }}</span>
+              @endif
             </div>
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
               </div>
+              @if($errors->first('under_name_kana'))
+                <span class="error_message">{{ $errors->first('under_name_kana') }}</span>
+              @endif
             </div>
           </div>
           <div class="mt-3">
@@ -50,6 +62,9 @@
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
             </div>
+            @if($errors->first('mail_address'))
+                <span class="error_message">{{ $errors->first('mail_address') }}</span>
+              @endif
           </div>
         </div>
         <div class="mt-3">
@@ -187,6 +202,9 @@
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password_confirmation" name="password">
           </div>
+          @if($errors->first('password'))
+            <span class="error_message">{{ $errors->first('password') }}</span>
+          @endif
         </div>
         <div class="mt-5 text-right">
           <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">

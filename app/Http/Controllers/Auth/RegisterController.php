@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Http\Requests\Auth\RegisterFormRequest;
 use DB;
 
 use App\Models\Users\Subjects;
@@ -57,25 +58,10 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
-    public function registerPost(Request $request)
+    public function registerPost(RegisterFormRequest $request)
     {
         DB::beginTransaction();
         try {
-
-            // $request->validate([
-            //     'over_name' => 'required|string|max:10',
-            //     'under_name' => 'required|string|max:10',
-            //     'over_name_kana' => 'required|string|max:30',
-            //     'under_name_kana' => 'required|string|max:30',
-            //     'mail_address' => 'required|email|unique:users|max:100',
-            //     'sex' => 'required',
-            //     'old_year' => 'required',
-            //     'old_month' => 'required',
-            //     'old_day' => 'required',
-            //     'role' => 'required',
-            //     'password' => 'required|min:8|max:30|confirmed',
-            // ]);
-
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
