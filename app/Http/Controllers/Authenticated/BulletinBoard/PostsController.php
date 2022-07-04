@@ -82,17 +82,17 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
-    public function subCategoryCreate(Request $request)
+    public function subCategoryCreate(PostFormRequest $request)
     {
-        // $request->validate([
-        //     'main_category_id' => 'required|exists:main_categories, id',
-        //     'sub_category' => 'required|max:100|string|unique:sub_categories'
-        // ]);
+        $exist = MainCategory::find($request->main_category_id)
+            ->exists();
 
-        SubCategory::create([
-            'main_category_id' => $request->main_category_id,
-            'sub_category' => $request->sub_category_name,
-        ]);
+        if ($exist) {
+            SubCategory::create([
+                'main_category_id' => $request->main_category_id,
+                'sub_category' => $request->sub_category,
+            ]);
+        }
 
         return redirect()->route('post.input');
     }
