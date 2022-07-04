@@ -94,7 +94,7 @@
             @foreach (\App\Models\Users\Subjects::get() as $subject)
             <div>
               <label for="{{ $subject->subject }}">{{ $subject->subject }}</label>
-              <input type="checkbox" id="{{ $subject->subject }}" name="subjects" value="{{ $subject->subject }}" form="userSearchRequest">
+              <input type="checkbox" name="subjects[]" value="{{ $subject->id }}" form="userSearchRequest">
             </div>
             @endforeach
           </div>
