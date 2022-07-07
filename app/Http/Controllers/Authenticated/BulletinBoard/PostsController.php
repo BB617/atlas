@@ -11,6 +11,7 @@ use App\Models\Posts\PostComment;
 use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
+use App\Http\Requests\BulletinBoard\CategoryFormRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -82,11 +83,10 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
-    public function subCategoryCreate(PostFormRequest $request)
+    public function subCategoryCreate(CategoryFormRequest $request)
     {
         $exist = MainCategory::find($request->main_category_id)
             ->exists();
-
         if ($exist) {
             SubCategory::create([
                 'main_category_id' => $request->main_category_id,
