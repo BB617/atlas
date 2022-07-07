@@ -15,19 +15,22 @@
     </div>
   </div>
 </div>
+
 <div id="modal" class="modal">
   <div id="modal__bg" class="modal__bg"></div>
   <div class="modal__content">
     <dl>
       <dt>予約日：</dt>
-      <dd id="date"></dd>
+      <dd id="date_text"></dd>
       <dt>時間：</dt>
-      <dd id="part"></dd>
+      <dd id="part_text"></dd>
     </dl>
     <p>上記の予約をキャンセルしてもよろしいですか？</p>
     <div>
       <button class="btn btn-primary col-2 px-2 modal__close" style="font-size:12px">閉じる</button>
-      <button id="submit" type="submit" class="btn btn-danger col-2 px-2" name="date" style="font-size:12px" value="" form="deleteParts">キャンセル</button>
+      <button id="submit" type="submit" class="btn btn-danger col-2 px-2" style="font-size:12px" form="deleteParts">キャンセル</button>
+      <input id="date" type="hidden" name="date" value="" form="deleteParts">
+      <input id="part" type="hidden" name="part" value="" form="deleteParts">
     </div>
   </div>
 

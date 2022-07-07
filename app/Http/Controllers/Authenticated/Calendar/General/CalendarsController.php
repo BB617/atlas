@@ -43,8 +43,8 @@ class CalendarsController extends Controller
     {
         DB::beginTransaction();
         try {
-            $part = $request->part;
             $date = $request->date;
+            $part = $request->part;
 
             $reserve_setting = ReserveSettings::where('setting_reserve', $date)
                 ->where('setting_part', $part)
