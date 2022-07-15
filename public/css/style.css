@@ -123,6 +123,10 @@ p {
   display: none;
 }
 
+.sub_categories input {
+  display: block;
+}
+
 .post_create_area {
   background: #FFF;
   border-radius: 10px;
