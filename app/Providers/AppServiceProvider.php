@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Routing\UrlGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,10 +23,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(UrlGenerator $url)
     {
+        $url->forceScheme('https');
+
         $this->registerPolicies();
-        Gate::define('admin', function($user){
+        Gate::define('admin', function ($user) {
             return ($user->role == "1" || $user->role == "2" || $user->role == "3");
         });
     }
