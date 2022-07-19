@@ -38,22 +38,12 @@
       <ul>
         @foreach($categories as $category)
         <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}
-<<<<<<< HEAD
-          <div class="sub_categories category_num{{ $category->id }}">
-          @foreach($category->subCategories as $sub_category)
-            <input type="submit" name="category_word" value="{{ $sub_category->sub_category }}" class
-            ="category_btn mb-2 ml-3" form="postSearchRequest">
-            <input type="hidden" name="category_word" value="{{$sub_category->id}}" form="postSearchRequest">
-          @endforeach
-        </div>
-=======
         <div class="sub_categories category_num{{ $category->id }}">
           @foreach($category->subCategories as $sub_category)
             <input type="submit" name="category_word" value="{{ $sub_category->sub_category }}" class
             ="category_btn mb-2 ml-3" form="postSearchRequest">
           @endforeach
           </div>
->>>>>>> 1953987fba5adedfbab7c1fbc855baa7fc8ec7d8
         </span></li>
         @endforeach
       </ul>
