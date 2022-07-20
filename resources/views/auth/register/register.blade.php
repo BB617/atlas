@@ -14,12 +14,13 @@
 </head>
 <body>
   <form action="{{ route('registerPost') }}" method="POST">
+    @csrf
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
-              <label class="d-block m-0" style="font-size:13px">姓</label>
+              <label class="d-block m-0" style="font-size:13px">姓a</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
               </div>
@@ -79,7 +80,7 @@
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
-            {{-- <option value="1985">1985</option>
+            <option value="1985">1985</option>
             <option value="1986">1986</option>
             <option value="1987">1987</option>
             <option value="1988">1988</option>
@@ -93,7 +94,7 @@
             <option value="1996">1996</option>
             <option value="1997">1997</option>
             <option value="1998">1998</option>
-            <option value="1999">1999</option> --}}
+            <option value="1999">1999</option>
             <option value="2000">2000</option>
             <option value="2001">2001</option>
             <option value="2002">2002</option>
@@ -213,7 +214,6 @@
           <a href="{{ route('loginView') }}">ログイン</a>
         </div>
       </div>
-      {{ csrf_field() }}
     </div>
   </form>
   </div>
