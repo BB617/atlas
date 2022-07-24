@@ -29,10 +29,10 @@ class PostsController extends Controller
         } else if ($request->category_word) {
             $sub_category = $request->category_word;
             $posts = Post::with('user', 'postComments')
-            ->whereHas('subCategories', function($query) use($sub_category){
-                $query->where('sub_category', $sub_category);
-            })
-            ->get();
+                ->whereHas('subCategories', function ($query) use ($sub_category) {
+                    $query->where('sub_category', $sub_category);
+                })
+                ->get();
         } else if ($request->like_posts) {
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
@@ -47,8 +47,9 @@ class PostsController extends Controller
 
     public function postDetail($post_id)
     {
-        $post = Post::with('user', 'postComments')->findOrFail($post_id);
-        return view('authenticated.bulletinboard.post_detail', compact('post'));
+        $post = Post::with('user', 'postComments', 'subCategories')->findOrFail($post_id);
+        $category = SubCategory::where('id', $post_id)->first();
+        return view('authenticated.bulletinboard.post_detail', compact('post', 'category'));
     }
 
     public function postInput()
